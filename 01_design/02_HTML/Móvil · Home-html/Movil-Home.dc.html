@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Clo Reyna — Home móvil</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0A0A0A}
+a{color:#F2EFEA;text-decoration:none}a:hover{color:#FFFFFF;text-decoration:underline}
+</style>
+</helmet>
+<div style="width: 390px; position: relative; background: #0A0A0A; color: #F2EFEA; font-family: 'IBM Plex Mono', ui-monospace, monospace">
+
+<header style="display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; border-bottom: 1px solid #2E2E2E">
+<a href="#top" style="font-family: 'Bodoni Moda', serif; font-size: 18px; letter-spacing: 0.28em">CLO REYNA</a>
+<button type="button" onClick="{{toggleMenu}}" aria-label="Abrir menú" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: transparent; border: 0; color: #F2EFEA; cursor: pointer">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h18M3 16h18"></path></svg>
+</button>
+</header>
+
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+<nav aria-label="Principal" style="position: absolute; top: 73px; left: 0; right: 0; z-index: 5; background: #0A0A0A; border-bottom: 1px solid #2E2E2E; padding: 8px 20px 28px; display: flex; flex-direction: column">
+<a href="Archivo-completo-movil.dc.html" style="padding: 16px 0; border-bottom: 1px solid #2E2E2E; font-family: 'Bodoni Moda', serif; font-size: 32px">Archivo</a>
+<a href="#portadas" onClick="{{toggleMenu}}" style="padding: 16px 0; border-bottom: 1px solid #2E2E2E; font-family: 'Bodoni Moda', serif; font-size: 32px">Portadas</a>
+<a href="#info" onClick="{{toggleMenu}}" style="padding: 16px 0; border-bottom: 1px solid #2E2E2E; font-family: 'Bodoni Moda', serif; font-size: 32px">Info</a>
+<a href="Booking-movil.dc.html" style="padding: 16px 0; border-bottom: 1px solid #2E2E2E; font-family: 'Bodoni Moda', serif; font-size: 32px">Booking</a>
+<a href="#top" style="padding: 20px 0 0; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: #A8A39B">ES / EN</a>
+</nav>
+</sc-if>
+
+<section id="top" style="padding: 28px 20px 0; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #A8A39B">Hairstylist — CDMX</p>
+<h1 style="margin: 0; font-family: 'Bodoni Moda', serif; font-weight: 400; font-size: 84px; line-height: 0.88">CLO<br><i>Reyna</i></h1>
+<p style="margin: 0; font-size: 14px; line-height: 1.7; color: #D6D2CC">Editorial, campaña y música. Formas esculpidas y textura para cámara.</p>
+</section>
+
+<img src="./assets/a0a384ab2457e42f7ce4e025b35b977f.jpg" alt="Editorial en blanco y negro con ondas esculpidas" style="display: block; width: 100%; height: 460px; object-fit: cover; object-position: 30% center; filter: grayscale(1); margin-top: 28px">
+
+<ol style="margin: 0; padding: 8px 20px 0; list-style: none; display: flex; flex-direction: column; font-size: 14px">
+<li style="display: grid; grid-template-columns: 36px 1fr; gap: 8px; padding: 16px 0; border-bottom: 1px solid #2E2E2E"><span style="color: #A8A39B">01</span><a href="Proyecto-Dior-movil.dc.html">Dior — Campaign hair</a></li>
+<li style="display: grid; grid-template-columns: 36px 1fr; gap: 8px; padding: 16px 0; border-bottom: 1px solid #2E2E2E"><span style="color: #A8A39B">02</span><a href="Proyecto-Cartier-movil.dc.html">Cartier — Editorial</a></li>
+<li style="display: grid; grid-template-columns: 36px 1fr; gap: 8px; padding: 16px 0; border-bottom: 1px solid #2E2E2E"><span style="color: #A8A39B">03</span><a href="#portadas">Glamour México — Portadas</a></li>
+<li style="display: grid; grid-template-columns: 36px 1fr; gap: 8px; padding: 16px 0; border-bottom: 1px solid #2E2E2E"><span style="color: #A8A39B">04</span><a href="#archivo">Matisse — El ayer</a></li>
+<li style="display: grid; grid-template-columns: 36px 1fr; gap: 8px; padding: 16px 0; border-bottom: 1px solid #2E2E2E"><span style="color: #A8A39B">05</span><a href="#archivo">Elle México — Editorial</a></li>
+</ol>
+
+<section aria-label="Clientes" style="margin-top: 40px; padding: 28px 20px; border-top: 1px solid #2E2E2E; border-bottom: 1px solid #2E2E2E; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; font-family: 'Bodoni Moda', serif; font-size: 16px; letter-spacing: 0.16em; color: #BDB8B0; text-align: center">
+<span>DIOR</span><span>CARTIER</span><span>VOGUE MX</span><span>ELLE MX</span><span>GLAMOUR</span><span>NIKE</span>
+</section>
+
+<section id="archivo" style="padding: 56px 0 40px">
+<h2 style="margin: 0 20px 20px; font-family: 'Bodoni Moda', serif; font-weight: 400; font-size: 44px">Archivo</h2>
+<div style="display: flex; gap: 8px; padding: 0 20px 28px; overflow-x: auto; font-size: 12px; text-transform: uppercase">
+<a href="#archivo" style="flex: none; padding: 12px 16px; border: 1px solid #F2EFEA; background: #F2EFEA; color: #0A0A0A">Todo</a>
+<a href="#archivo" style="flex: none; padding: 12px 16px; border: 1px solid #5A5650">Editorial</a>
+<a href="#archivo" style="flex: none; padding: 12px 16px; border: 1px solid #5A5650">Campaña</a>
+<a href="#archivo" style="flex: none; padding: 12px 16px; border: 1px solid #5A5650">Música</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 40px; padding: 0 20px">
+<article style="display: flex; flex-direction: column; gap: 12px">
+<img src="./assets/84939cf137e8077230b21f1373cfcfa0.jpg" alt="Campaña Dior en blanco y negro" style="width: 100%; height: 440px; object-fit: cover">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+<h3 style="margin: 0; font-family: 'Bodoni Moda', serif; font-weight: 400; font-size: 26px"><a href="Proyecto-Dior-movil.dc.html">01 — Dior</a></h3>
+<span style="font-size: 12px; text-transform: uppercase; color: #A8A39B">Campaña</span>
+</div>
+</article>
+<article style="display: flex; flex-direction: column; gap: 12px">
+<img src="./assets/3c9f6468d5f9d1e0561dcf14422c9572.jpg" alt="Editorial Cartier con bob negro" style="width: 100%; height: 440px; object-fit: cover">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+<h3 style="margin: 0; font-family: 'Bodoni Moda', serif; font-weight: 400; font-size: 26px"><a href="Proyecto-Cartier-movil.dc.html">02 — Cartier</a></h3>
+<span style="font-size: 12px; text-transform: uppercase; color: #A8A39B">Editorial</span>
+</div>
+</article>
+<article style="display: flex; flex-direction: column; gap: 12px">
+<img src="./assets/75213172127f1a09e2f4e528a2455afc.jpg" alt="Editorial Elle México con fleco esculpido" style="width: 100%; height: 440px; object-fit: cover">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+<h3 style="margin: 0; font-family: 'Bodoni Moda', serif; font-weight: 400; font-size: 26px">05 — Elle México</h3>
+<span style="font-size: 12px; text-transform: uppercase; color: #A8A39B">Editorial</span>
+</div>
+</article>
+<a href="Archivo-completo-movil.dc.html" style="padding: 18px; border: 1px solid #F2EFEA; text-align: center; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em">Ver todos los proyectos</a>
+</div>
+</section>
+
+<section id="portadas" style="padding: 48px 20px; border-top: 1px solid #2E2E2E; display: flex; flex-direction: column; gap: 20px">
+<p style="margin: 0; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #A8A39B">03 — Portadas</p>
+<h2 style="margin: 0; font-family: 'Bodoni Moda', serif; font-weight: 400; font-style: italic; font-size: 40px; line-height: 1.05">Glamour México, Vogue, Elle.</h2>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+<img src="./assets/4808986e25f7deadc0ab48fe81c5f557.jpg" alt="Portada de Glamour México con Carla Morrison" style="width: 100%; height: 230px; object-fit: cover">
+<img src="./assets/d579a95ac4ab4b1060fcda002830fe42.jpg" alt="Portada de Glamour México con Cristy Camacho" style="width: 100%; height: 230px; object-fit: cover">
+</div>
+</section>
+
+<section id="info" style="padding: 48px 20px; border-top: 1px solid #2E2E2E; display: flex; flex-direction: column; gap: 24px">
+<h2 style="margin: 0; font-family: 'Bodoni Moda', serif; font-weight: 400; font-size: 44px">Info</h2>
+<div style="height: 320px; background: #1A1A1A; display: flex; align-items: center; justify-content: center; color: #8F8A83; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em">[Retrato de Clo]</div>
+<p style="margin: 0; font-family: 'Bodoni Moda', serif; font-size: 22px; line-height: 1.4">Claudia “Clo” Reyna es hairstylist en la Ciudad de México. [Una frase sobre su enfoque.]</p>
+<div style="display: flex; flex-direction: column; gap: 18px; font-size: 13px; line-height: 1.7">
+<div><p style="margin: 0 0 4px; color: #A8A39B; text-transform: uppercase">Marcas</p><p style="margin: 0">Dior, Cartier, Nike FC, Toyota, Oppo, Tequila Lalo, Yuya</p></div>
+<div><p style="margin: 0 0 4px; color: #A8A39B; text-transform: uppercase">Revistas</p><p style="margin: 0">Vogue MX, Elle MX, Glamour MX, Paper City Houston</p></div>
+<div><p style="margin: 0 0 4px; color: #A8A39B; text-transform: uppercase">Música</p><p style="margin: 0">Matisse, [Artistas]</p></div>
+</div>
+</section>
+
+<section id="contacto" style="padding: 56px 20px 64px; background: #F2EFEA; color: #0A0A0A; display: flex; flex-direction: column; gap: 20px">
+<h2 style="margin: 0; font-family: 'Bodoni Moda', serif; font-weight: 400; font-size: 52px; line-height: 0.95">¿Tienes un <i>shoot?</i></h2>
+<a href="mailto:clo.stylistroom@gmail.com" style="color: #0A0A0A; font-size: 15px; text-decoration: underline">clo.stylistroom@gmail.com</a>
+<form style="display: flex; flex-direction: column; gap: 16px; margin-top: 8px">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase">Nombre<input type="text" style="padding: 14px; border: 1px solid #0A0A0A; background: transparent; font-size: 16px"></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase">Email<input type="email" style="padding: 14px; border: 1px solid #0A0A0A; background: transparent; font-size: 16px"></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase">Cuéntame del proyecto<textarea rows="5" placeholder="Tipo de proyecto, fechas, ciudad y referencias." style="padding: 14px; border: 1px solid #0A0A0A; background: transparent; font-size: 16px"></textarea></label>
+<button type="submit" style="padding: 18px; background: #0A0A0A; color: #F2EFEA; border: 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer">Enviar solicitud</button>
+</form>
+</section>
+
+<footer style="padding: 24px 20px 32px; display: flex; flex-direction: column; gap: 10px; font-size: 12px; color: #A8A39B">
+<a href="https://www.instagram.com/clo.stylistroom/" style="color: #A8A39B">@clo.stylistroom</a>
+<a href="#top" style="color: #A8A39B">Descargar book (PDF)</a>
+<span>© Clo Reyna Hairstyling — CDMX</span>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":5200}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { menuOpen: false };
+}
+renderVals() {
+return {
+menuOpen: this.state.menuOpen,
+toggleMenu: () => this.setState({ menuOpen: !this.state.menuOpen })
+};
+}
+}
+</script>
+</body>
+</html>

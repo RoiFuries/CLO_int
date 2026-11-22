@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Clo Reyna — Archivo móvil</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0A0A0A}
+a{color:#F2EFEA;text-decoration:none}a:hover{color:#FFFFFF;text-decoration:underline}
+</style>
+</helmet>
+<div style="width: 390px; position: relative; background: #0A0A0A; color: #F2EFEA; font-family: 'IBM Plex Mono', ui-monospace, monospace">
+
+<header style="display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; border-bottom: 1px solid #2E2E2E">
+<a href="Movil-Home.dc.html" style="font-family: 'Bodoni Moda', serif; font-size: 18px; letter-spacing: 0.28em">CLO REYNA</a>
+<button type="button" onClick="{{toggleMenu}}" aria-label="Abrir menú" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: transparent; border: 0; color: #F2EFEA; cursor: pointer">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h18M3 16h18"></path></svg>
+</button>
+</header>
+
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+<nav aria-label="Principal" style="position: absolute; top: 73px; left: 0; right: 0; z-index: 5; background: #0A0A0A; border-bottom: 1px solid #2E2E2E; padding: 8px 20px 28px; display: flex; flex-direction: column">
+<a href="Movil-Home.dc.html" style="padding: 16px 0; border-bottom: 1px solid #2E2E2E; font-family: 'Bodoni Moda', serif; font-size: 32px">Inicio</a>
+<a href="Archivo-completo-movil.dc.html" onClick="{{toggleMenu}}" style="padding: 16px 0; border-bottom: 1px solid #2E2E2E; font-family: 'Bodoni Moda', serif; font-size: 32px">Archivo</a>
+<a href="Booking-movil.dc.html" style="padding: 16px 0; border-bottom: 1px solid #2E2E2E; font-family: 'Bodoni Moda', serif; font-size: 32px">Booking</a>
+<a href="#top" style="padding: 20px 0 0; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: #A8A39B">ES / EN</a>
+</nav>
+</sc-if>
+
+<section id="top" style="padding: 32px 20px 24px; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #A8A39B">{{count}} proyectos</p>
+<h1 style="margin: 0; font-family: 'Bodoni Moda', serif; font-weight: 400; font-size: 72px; line-height: 0.9">Archivo</h1>
+</section>
+
+<div role="group" aria-label="Filtrar por tipo" style="display: flex; gap: 8px; padding: 0 20px 24px; overflow-x: auto; border-bottom: 1px solid #2E2E2E">
+<sc-for list="{{filters}}" as="f" hint-placeholder-count="5">
+<sc-if value="{{f.on}}" hint-placeholder-val="{{ false }}">
+<button type="button" onClick="{{f.pick}}" aria-pressed="true" style="flex: none; padding: 12px 16px; min-height: 44px; font-family: inherit; font-size: 12px; text-transform: uppercase; cursor: pointer; border: 1px solid #F2EFEA; background: #F2EFEA; color: #0A0A0A">{{f.label}}</button>
+</sc-if>
+<sc-if value="{{f.off}}" hint-placeholder-val="{{ true }}">
+<button type="button" onClick="{{f.pick}}" aria-pressed="false" style="flex: none; padding: 12px 16px; min-height: 44px; font-family: inherit; font-size: 12px; text-transform: uppercase; cursor: pointer; border: 1px solid #5A5650; background: transparent; color: #F2EFEA">{{f.label}}</button>
+</sc-if>
+</sc-for>
+</div>
+
+<section aria-label="Proyectos" style="padding: 28px 20px 56px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 12px">
+<sc-for list="{{items}}" as="item" hint-placeholder-count="12">
+<a href="{{item.href}}" style="display: flex; flex-direction: column; gap: 10px">
+<img src="{{item.img}}" alt="{{item.alt}}" style="width: 100%; height: 230px; object-fit: cover">
+<span style="font-family: 'Bodoni Moda', serif; font-size: 17px; line-height: 1.25">{{item.num}} — {{item.title}}</span>
+<span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: #A8A39B">{{item.cat}}</span>
+</a>
+</sc-for>
+</section>
+
+<section style="padding: 48px 20px; background: #F2EFEA; color: #0A0A0A; display: flex; flex-direction: column; gap: 20px">
+<h2 style="margin: 0; font-family: 'Bodoni Moda', serif; font-weight: 400; font-size: 44px; line-height: 1">¿Tienes un <i>shoot?</i></h2>
+<a href="Booking-movil.dc.html" style="padding: 18px; background: #0A0A0A; color: #F2EFEA; text-align: center; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase">Booking</a>
+</section>
+
+<footer style="padding: 24px 20px 32px; display: flex; flex-direction: column; gap: 10px; font-size: 12px; color: #A8A39B">
+<a href="https://www.instagram.com/clo.stylistroom/" style="color: #A8A39B">@clo.stylistroom</a>
+<span>© Clo Reyna Hairstyling — CDMX</span>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":2600}}'>
+var PROYECTOS = [
+{ num: '01', title: 'Dior', cat: 'Campaña', img: './assets/84939cf137e8077230b21f1373cfcfa0.jpg', alt: 'Campaña Dior en blanco y negro', href: 'Proyecto-Dior-movil.dc.html' },
+{ num: '02', title: 'Cartier', cat: 'Editorial', img: './assets/3c9f6468d5f9d1e0561dcf14422c9572.jpg', alt: 'Editorial Cartier con bob negro', href: 'Proyecto-Cartier-movil.dc.html' },
+{ num: '03', title: 'Glamour MX — Carla Morrison', cat: 'Portada', img: './assets/4808986e25f7deadc0ab48fe81c5f557.jpg', alt: 'Portada de Glamour México con Carla Morrison', href: '#top' },
+{ num: '04', title: 'Matisse — El ayer', cat: 'Música', img: './assets/260db3268d28b1b4234e9c5e0df543bf.jpg', alt: 'Portada del sencillo El ayer de Matisse', href: '#top' },
+{ num: '05', title: 'Elle México', cat: 'Editorial', img: './assets/75213172127f1a09e2f4e528a2455afc.jpg', alt: 'Editorial Elle México con fleco esculpido', href: '#top' },
+{ num: '06', title: 'Editorial Corea', cat: 'Portada', img: './assets/5a438470d6975e1706d8b9b7c48f1cc1.jpg', alt: 'Portada editorial coreana en blanco y negro', href: '#top' },
+{ num: '07', title: 'Yuya', cat: 'Campaña', img: './assets/69fff80fd61cd673a071c0ca47779688.jpg', alt: 'Campaña Yuya: trenza larga y fondo verde', href: '#top' },
+{ num: '08', title: 'Bailando Juntos', cat: 'Campaña', img: './assets/181edd957f58b3c4ca3b0e4f0fa298ce.jpg', alt: 'Campaña Bailando Juntos', href: '#top' },
+{ num: '09', title: 'Glamour MX — Cristy Camacho', cat: 'Portada', img: './assets/d579a95ac4ab4b1060fcda002830fe42.jpg', alt: 'Portada de Glamour México con Cristy Camacho', href: '#top' },
+{ num: '10', title: 'Elle México II', cat: 'Editorial', img: './assets/bca916e0d2fb13d74cb22b6ebfe9024e.jpg', alt: 'Elle México: recogido con rizos sueltos', href: '#top' },
+{ num: '11', title: 'Editorial Corea — color', cat: 'Portada', img: './assets/af20ccd71d213f54d10cf870a632e25e.jpg', alt: 'Portada coreana con pelo rosa', href: '#top' },
+{ num: '12', title: '[Cliente] Beauty', cat: 'Campaña', img: './assets/0d8c854c547dd537174ff12c3cfebcdb.jpg', alt: 'Trenzas finas con labial nude', href: '#top' }
+];
+var FILTROS = ['Todo', 'Editorial', 'Campaña', 'Música', 'Portada'];
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { filter: 'Todo', menuOpen: false };
+}
+renderVals() {
+var cur = this.state.filter;
+var self = this;
+var items = cur === 'Todo' ? PROYECTOS : PROYECTOS.filter(function (p) { return p.cat === cur; });
+var filters = FILTROS.map(function (label) {
+var on = label === cur;
+return { label: label, on: on, off: !on, pick: function () { self.setState({ filter: label }); } };
+});
+return {
+items: items,
+filters: filters,
+count: PROYECTOS.length,
+menuOpen: this.state.menuOpen,
+toggleMenu: function () { self.setState({ menuOpen: !self.state.menuOpen }); }
+};
+}
+}
+</script>
+</body>
+</html>

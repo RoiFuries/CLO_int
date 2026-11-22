@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Clo Reyna — Booking</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0A0A0A}
+a{color:#F2EFEA;text-decoration:none}a:hover{color:#FFFFFF;text-decoration:underline}
+</style>
+</helmet>
+<div style="background: #0A0A0A; color: #F2EFEA; font-family: 'IBM Plex Mono', ui-monospace, monospace; min-height: 100vh">
+
+<header style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding: 24px 4%; border-bottom: 1px solid #2E2E2E; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em">
+<a href="Hibrido.dc.html" style="font-family: 'Bodoni Moda', serif; font-size: 22px; letter-spacing: 0.3em; text-transform: none">CLO REYNA</a>
+<nav aria-label="Principal" style="display: flex; flex-wrap: wrap; gap: 28px">
+<a href="Archivo-completo.dc.html">Archivo</a>
+<a href="Hibrido.dc.html">Info</a>
+<a href="Booking.dc.html" aria-current="page" style="border-bottom: 1px solid #F2EFEA">Booking</a>
+<a href="#top" aria-label="Cambiar idioma a inglés">ES / EN</a>
+</nav>
+</header>
+
+<sc-if value="{{editing}}" hint-placeholder-val="{{ true }}">
+<div id="top" style="display: flex; flex-wrap: wrap">
+<aside style="flex: 1 1 420px; position: relative; min-height: 780px">
+<img src="./assets/fb7e7e9ca0d0d23ec092e0a293f6822f.jpg" alt="Editorial Cartier: bob negro de perfil" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 40px; background: linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.92) 60%); display: flex; flex-direction: column; gap: 14px; font-size: 14px; line-height: 1.7">
+<p style="margin: 0; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #A8A39B">Contacto directo</p>
+<a href="mailto:clo.stylistroom@gmail.com" style="font-size: 17px; text-decoration: underline">clo.stylistroom@gmail.com</a>
+<a href="https://www.instagram.com/clo.stylistroom/" style="text-decoration: underline">@clo.stylistroom</a>
+<p style="margin: 0; color: #D6D2CC">Base en CDMX. Disponible para viajar.</p>
+</div>
+</aside>
+
+<section style="flex: 1.4 1 560px; padding: 64px 5% 88px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<h1 style="margin: 0; font-family: 'Bodoni Moda', serif; font-weight: 400; font-size: clamp(64px, 8vw, 120px); line-height: 0.9">Booking</h1>
+<p style="margin: 0; max-width: 520px; font-size: 15px; line-height: 1.7; color: #D6D2CC">Editorial, campaña, video musical o talento. Entre más detalles compartas, más rápido te mando disponibilidad y propuesta.</p>
+</div>
+
+<form onSubmit="{{send}}" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px">
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #D6D2CC">Nombre<input type="text" required="" style="padding: 14px; border: 1px solid #5A5650; background: transparent; color: #F2EFEA; font-family: inherit; font-size: 16px"></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #D6D2CC">Email<input type="email" required="" style="padding: 14px; border: 1px solid #5A5650; background: transparent; color: #F2EFEA; font-family: inherit; font-size: 16px"></label>
+<label style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 8px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #D6D2CC">Cuéntame del proyecto<textarea rows="6" placeholder="Tipo de proyecto (editorial, campaña, video…), fechas, ciudad y cualquier referencia o link al moodboard." style="padding: 14px; border: 1px solid #5A5650; background: transparent; color: #F2EFEA; font-family: inherit; font-size: 16px"></textarea></label>
+<button type="submit" style="grid-column: 1 / -1; justify-self: start; padding: 18px 44px; background: #F2EFEA; color: #0A0A0A; border: 0; font-family: inherit; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer">Enviar solicitud</button>
+</form>
+</section>
+</div>
+</sc-if>
+
+<sc-if value="{{sent}}" hint-placeholder-val="{{ false }}">
+<section style="min-height: 820px; padding: 96px 5%; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div style="flex: 1.3 1 520px; display: flex; flex-direction: column; gap: 28px">
+<p style="margin: 0; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: #A8A39B">Solicitud enviada</p>
+<h1 style="margin: 0; font-family: 'Bodoni Moda', serif; font-weight: 400; font-size: clamp(72px, 10vw, 152px); line-height: 0.88">Gracias<i>.</i></h1>
+<p style="margin: 0; max-width: 520px; font-size: 16px; line-height: 1.7; color: #D6D2CC">Recibí los detalles de tu proyecto. Te escribo a tu correo con disponibilidad y propuesta en [tiempo de respuesta]. Si es urgente, escríbeme directo a clo.stylistroom@gmail.com.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em">
+<a href="Archivo-completo.dc.html" style="padding: 16px 28px; background: #F2EFEA; color: #0A0A0A">Ver el archivo</a>
+<button type="button" onClick="{{reset}}" style="padding: 16px 28px; background: transparent; color: #F2EFEA; border: 1px solid #5A5650; font-family: inherit; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer">Enviar otra solicitud</button>
+</div>
+</div>
+<img src="./assets/d9c5d34390e66e74c28260327108d92e.jpg" alt="Editorial Cartier: retrato en sillón rojo" style="flex: 1 1 360px; height: 620px; object-fit: cover; min-width: 0">
+</section>
+</sc-if>
+
+<footer style="padding: 28px 4%; border-top: 1px solid #2E2E2E; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 13px; color: #A8A39B">
+<span>© Clo Reyna Hairstyling — CDMX</span>
+<a href="https://www.instagram.com/clo.stylistroom/" style="color: #A8A39B">@clo.stylistroom</a>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":960}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { sent: false };
+}
+renderVals() {
+var self = this;
+return {
+sent: this.state.sent,
+editing: !this.state.sent,
+send: function (e) { if (e && e.preventDefault) e.preventDefault(); self.setState({ sent: true }); },
+reset: function () { self.setState({ sent: false }); }
+};
+}
+}
+</script>
+</body>
+</html>

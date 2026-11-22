@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Booking — Clo Reyna</title>
+<meta name="description" content="Solicita disponibilidad y propuesta para tu proyecto editorial, de campaña o video con Clo Reyna, hairstylist en CDMX.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_MX">
+<meta property="og:site_name" content="Clo Reyna">
+<meta property="og:title" content="Booking — Clo Reyna">
+<meta property="og:description" content="Solicita disponibilidad y propuesta para tu proyecto editorial, de campaña o video con Clo Reyna, hairstylist en CDMX.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="site-header">
+  <a class="logo" href="index.html">CLO REYNA</a>
+  <button class="menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  <nav class="nav" id="menu" aria-label="Principal">
+    <a href="archivo.html">Archivo</a>
+    <a href="index.html#portadas">Portadas</a>
+    <a href="index.html#info">Info</a>
+    <a href="booking.html" aria-current="page">Booking</a>
+    <span class="lang" title="Versión en inglés próximamente">ES / EN</span>
+  </nav>
+</header>
+
+<main id="contenido">
+<div id="booking-vista">
+  <div class="booking">
+    <aside class="booking__lado" aria-label="Contacto directo">
+      <img src="assets/fotos/02-cartier/03.jpg" alt="Editorial Cartier: bob negro de perfil" width="409" height="703">
+      <div class="booking__contacto">
+        <p class="etiqueta">Contacto directo</p>
+        <a href="mailto:clo.stylistroom@gmail.com">clo.stylistroom@gmail.com</a>
+        <a href="https://www.instagram.com/clo.stylistroom/" rel="noopener">@clo.stylistroom</a>
+        <p>Base en CDMX. Disponible para viajar.</p>
+      </div>
+    </aside>
+    <section class="booking__principal" aria-labelledby="booking-h">
+      <div class="booking__titulo">
+        <h1 class="pagina-h1" id="booking-h">Booking</h1>
+        <p class="booking__intro">Editorial, campaña, video musical o talento. Entre más detalles compartas, más rápido te mando disponibilidad y propuesta.</p>
+      </div>
+      <form class="form form--oscuro" data-booking data-vista="#booking-vista" data-gracias="#booking-gracias" method="post" novalidate>
+  <label class="campo">Nombre *<input type="text" name="nombre" autocomplete="name" required></label>
+  <label class="campo">Email *<input type="email" name="email" autocomplete="email" required></label>
+  <label class="campo campo--ancho">Cuéntame del proyecto<textarea name="proyecto" rows="6" placeholder="Tipo de proyecto (editorial, campaña, video…), fechas, ciudad y cualquier referencia o link al moodboard."></textarea></label>
+  <div class="honeypot" aria-hidden="true"><label>No llenar<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+  <p class="form__error" role="alert" hidden></p>
+  <button class="btn" type="submit">Enviar solicitud</button>
+</form>
+    </section>
+  </div>
+</div>
+
+<section class="gracias-pag" id="booking-gracias" hidden>
+  <div class="gracias">
+    <p class="etiqueta">Solicitud enviada</p>
+    <h1 tabindex="-1">Gracias<i>.</i></h1>
+    <p>Recibí los detalles de tu proyecto. Te escribo a tu correo con disponibilidad y propuesta en [tiempo de respuesta]. Si es urgente, escríbeme directo a clo.stylistroom@gmail.com.</p>
+    <div class="gracias__acciones">
+      <a class="btn btn--solid" href="archivo.html">Ver el archivo</a>
+      <button class="btn" type="button" data-reset>Enviar otra solicitud</button>
+    </div>
+  </div>
+  <img src="assets/fotos/02-cartier/01.jpg" alt="Editorial Cartier: retrato en sillón rojo" width="445" height="666">
+</section>
+</main>
+<footer class="site-footer">
+  <span>© Clo Reyna Hairstyling — CDMX</span>
+  <nav aria-label="Enlaces">
+    <a href="https://www.instagram.com/clo.stylistroom/" rel="noopener">@clo.stylistroom</a>
+    <a href="https://youtu.be/-XxPba5XCcU" rel="noopener">Video del book</a>
+  </nav>
+</footer>
+<script type="module" src="js/menu.js"></script>
+<script type="module" src="js/booking.js"></script>
+</body>
+</html>
