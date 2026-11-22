@@ -1,16 +1,18 @@
+import { t, tr, altDe } from './i18n.js';
+
 // Ficha de proyecto (foto, "NN — Nombre", Tipo / Foto / Año). La usan home y archivo.
 export function tarjeta(p) {
   const href = `proyecto.html?p=${encodeURIComponent(p.slug)}`;
   return `
     <article class="ficha">
       <a class="ficha__foto" href="${href}" tabindex="-1" aria-hidden="true">
-        <img src="${p.portada}" alt="${p.alt}" width="600" height="800" loading="lazy">
+        <img src="${p.portada}" alt="${altDe(p)}" width="600" height="800" loading="lazy">
       </a>
-      <h3 class="ficha__titulo"><a href="${href}">${p.num} — ${p.titulo}</a></h3>
+      <h3 class="ficha__titulo"><a href="${href}">${p.num} — ${tr(p.titulo)}</a></h3>
       <dl class="datos">
-        <dt>Tipo</dt><dd>${p.tipo}</dd>
-        <dt>Foto</dt><dd>${p.creditos.fotografia}</dd>
-        <dt>Año</dt><dd>${p.creditos.anio}</dd>
+        <dt>${t('ficha.tipo')}</dt><dd>${tr(p.tipo)}</dd>
+        <dt>${t('ficha.foto')}</dt><dd>${tr(p.creditos.fotografia)}</dd>
+        <dt>${t('ficha.anio')}</dt><dd>${tr(p.creditos.anio)}</dd>
       </dl>
     </article>`;
 }

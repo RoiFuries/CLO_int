@@ -1,6 +1,7 @@
 // Archivo: filtros (con ?f= en la URL) y cuadrícula pintada desde los datos.
 import { proyectos } from './proyectos.js';
 import { tarjeta, repintar } from './tarjeta.js';
+import { t, slugCat } from './i18n.js';
 
 const normalizar = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 const filtros = [...document.querySelectorAll('.filtros button')];
@@ -12,9 +13,9 @@ let actual = new URLSearchParams(location.search).get('f');
 if (!validos.includes(actual)) actual = 'todo';
 
 function pintar(animar = true) {
-  const visibles = actual === 'todo' ? proyectos : proyectos.filter((p) => normalizar(p.categoria) === actual);
+  const visibles = actual === 'todo' ? proyectos : proyectos.filter((p) => slugCat(p.categoria) === actual);
   if (animar) repintar(lista, visibles.map(tarjeta).join('')); else lista.innerHTML = visibles.map(tarjeta).join('');
-  contador.textContent = `${visibles.length} proyecto${visibles.length === 1 ? '' : 's'}`;
+  contador.textContent = t(visibles.length === 1 ? 'contador.uno' : 'contador.otros', { n: visibles.length });
   filtros.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.filtro === actual)));
 }
 
@@ -26,4 +27,5 @@ filtros.forEach((b) => b.addEventListener('click', () => {
   pintar();
 }));
 
+document.addEventListener('langchange', () => pintar(false));
 pintar(false);

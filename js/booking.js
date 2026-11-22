@@ -1,3 +1,5 @@
+import { t } from './i18n.js';
+
 // Envío del formulario de booking con Formspree (sin recargar) y pantalla "Gracias".
 // Reemplaza el endpoint cuando Clo cree su cuenta de Formspree.
 const FORMSPREE_URL = 'https://formspree.io/f/XXXXXXXX';
@@ -9,14 +11,13 @@ function iniciar(form) {
   const gracias = document.querySelector(form.dataset.gracias); // lo que aparece
   const error = form.querySelector('.form__error');
   const boton = form.querySelector('button[type="submit"]');
-  const textoBoton = boton.textContent;
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!form.reportValidity()) return;
     error.hidden = true;
     boton.disabled = true;
-    boton.textContent = 'Enviando…';
+    boton.textContent = t('form.enviando');
 
     try {
       const res = await fetch(FORMSPREE_URL, {
@@ -30,11 +31,11 @@ function iniciar(form) {
       gracias.querySelector('h1, h2')?.focus();
       form.reset();
     } catch {
-      error.innerHTML = `No se pudo enviar tu solicitud. Escríbeme directo a <a href="mailto:${EMAIL}">${EMAIL}</a>.`;
+      error.innerHTML = t('form.error', { email: EMAIL });
       error.hidden = false;
     } finally {
       boton.disabled = false;
-      boton.textContent = textoBoton;
+      boton.textContent = t('f.enviar');
     }
   });
 
